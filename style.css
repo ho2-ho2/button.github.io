@@ -1,0 +1,294 @@
+html {
+  background-image: url('https://blog.kakaocdn.net/dn/zBcoC/btq3DxhQIRl/4nl8Fip8wIRp2YiJ64u9X0/img.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@keyframes 왔다갔다 {
+  0% {
+    transform: translateX(0px);
+  }
+
+  50% {
+    transform: translateX(-100px);
+  }
+
+  75% {
+    transform: translateX(100px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes 왔다갔다2 {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-100px);
+  }
+
+  75% {
+    transform: translateY(100px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes 왔다갔다3 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(-20deg);
+  }
+
+  75% {
+    transform: rotate(20deg);
+  }
+
+  100% {
+    transform: rotate(0deg) scale(2);
+  }
+}
+
+.ani-btn1 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 5rem;
+}
+
+.ani-btn1:hover {
+  animation-name: 왔다갔다;
+  animation-duration: 1s;
+}
+
+.ani-btn2 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3rem;
+  color: white;
+  background-color: burlywood;
+  margin-top: 3rem;
+}
+
+.ani-btn2:hover {
+  animation-name: 왔다갔다2;
+  animation-duration: 1s;
+}
+
+.ani-btn3 {
+  display: block;
+  padding: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  color: black;
+  background-color: salmon;
+}
+
+.ani-btn3:hover {
+  animation-name: 왔다갔다3;
+  animation-duration: 1s;
+  /* 올려놨을때 끝내지말고 계속유지시키기 */
+  animation-fill-mode: forwards;
+}
+
+/*--------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------------*/
+@keyframes 네브바 {
+  0% {
+    transform: translateX(-250px);
+  }
+
+  50% {
+    transform: translateX(30px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+.ani-navbar {
+  width: 200px;
+  height: 100%;
+  background: lavender;
+  color: black;
+  padding: 25px;
+  position: fixed;
+  text-align: right;
+  transform: translateX(-180px);
+  transition: all 1s;
+}
+
+.ani-navbar p {
+  text-align: center;
+}
+
+.ani-navbar:hover {
+  transform: translateX(-10px);
+  text-align: center;
+}
+
+.ani-navbar:hover p {
+  animation-name: 네브바;
+  animation-duration: 1s;
+}
+
+/*---------------------------------------------------------------------  */
+.ani-navbar:hover h4 {
+  animation-name: 네브바메뉴글자움직임;
+  animation-duration: 1s;
+}
+
+@keyframes 네브바메뉴글자움직임 {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(-40px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/*---------------------------------------------------------------------  */
+
+/*중앙으로 놓기*/
+.d-container {
+  position: absolute;
+  left: 80%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  perspective: 1000px;
+}
+
+.d-flip-btn {
+  width: 200px;
+  height: 100px;
+  color: black;
+  text-align: center;
+  line-height: 100px;
+  transform-style: preserve-3d;
+  transition: .5s;
+}
+
+/*마우스를 올리면*/
+.d-flip-btn:hover {
+  transform: rotateX(-90deg);
+}
+
+.d-front {
+  background-color: yellow;
+  height: 100px;
+  transform: translateZ(50px);
+}
+
+.d-back {
+  background-color: yellowgreen;
+  height: 100px;
+  transform: rotateX(90deg) translateZ(150px);
+}
+
+/*---------------------------------------------------------------------  */
+
+.flip-outer {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.flip-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  /* 1초동안 실행 */
+  transition: all 1s;
+  /* 글자가 뒤에 붙일려면 3d처럼보여야함 */
+  transform-style: preserve-3d;
+}
+
+.front {
+  position: absolute;
+  width: 100%;
+  /* 글이 안보일때  */
+  z-index: 1;
+  /* 뒷면은 이미지 가리기 */
+  backface-visibility: hidden;
+}
+
+.back {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: absolute;
+  text-align: center;
+  /* 글자 위치 내리고 박스랑 겹치게 */
+  padding-top: 50px;
+  box-sizing: border-box;
+  /* hover로 180도 돌렸으니 글자 다시 복구할려면  */
+  transform: rotateY(180deg);
+  background-color: rgb(250, 174, 28);
+}
+
+.flip-inner:hover {
+  transform: rotateY(180deg);
+}
+
+/*---------------------------------------------------------------------  */
+
+:root .btn {
+  background: none;
+  border: 2px solid white;
+  font-size: 35px;
+  color: white;
+  padding: 20px 40px;
+  width: 250px;
+  cursor: pointer;
+  position: relative;
+  margin-top: 3rem
+}
+
+.btn-swap span {
+  position: absolute;
+  top: 25%;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.btn-swap:hover span {
+  opacity: 1;
+}
+
+.btn-swap::before {
+  content: "";
+  width: 0%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: orangered;
+  transition: 0.5s;
+}
+
+.btn-swap:hover::before {
+  width: 100%;
+}
